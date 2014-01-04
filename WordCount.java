@@ -5,11 +5,14 @@ class WordCount{
 	Count count = new Count();
 
     String input = myFile.readTextFile(args[0]);
-    int noOfLines = count.lineCount(input);
 
-    System.out.println(noOfLines +" "+ args[0]);
+    int noOfLines = count.lineCount(input);
+    int noOfCharacter = count.charCount(input);
+
+    System.out.println(noOfLines +" "+noOfCharacter+" "+ args[0]);
 	}
 }
+
 class MyFile {
   public String readTextFile(String fileName) {
     String returnValue = "";
@@ -31,10 +34,17 @@ class MyFile {
     return returnValue;
   }
 }
+
 class Count{
 	public int lineCount(String text) {
 		int count = 0;
-		String[] line = text.split("\n");
-		return line.length;
+		String[] lines = text.split("\n");
+		return lines.length;
+	}
+	
+	public int charCount(String text) {
+		int count = 0;
+		String[] characters = text.split("");
+		return characters.length;
 	}
 }
