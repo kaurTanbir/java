@@ -1,10 +1,10 @@
 import java.io.*;
 class WordCount{
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 	MyFile myFile = new MyFile();
 	Count count = new Count();
 
-    String input = myFile.readTextFile(args[0]);
+    String input = myFile.readFile(args[0]);
 
     int noOfLines = count.lineCount(input);
     int noOfCharacter = count.charCount(input);
@@ -15,7 +15,7 @@ class WordCount{
 }
 
 class MyFile {
-  public String readTextFile(String fileName) {
+  public String readFile(String fileName) throws IOException{
     String returnValue = "";
     FileReader file = null;
     String line = "";
@@ -28,9 +28,6 @@ class MyFile {
     } 
     catch (FileNotFoundException e) {
 		throw new RuntimeException("File not found");
-    } 
-    catch (IOException e) {
-		throw new RuntimeException("IO Error occured");
     } 
     return returnValue;
   }
