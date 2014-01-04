@@ -8,8 +8,9 @@ class WordCount{
 
     int noOfLines = count.lineCount(input);
     int noOfCharacter = count.charCount(input);
+    int noOfWords = count.wordCount(input);
 
-    System.out.println(noOfLines +" "+noOfCharacter+" "+ args[0]);
+    System.out.println(noOfLines +" "+noOfWords+" "+noOfCharacter+" "+ args[0]);
 	}
 }
 
@@ -42,6 +43,12 @@ class Count{
 		return lines.length;
 	}
 	
+	public int wordCount(String text) {
+		int count = 0;
+		String[] words = text.split("\\s");
+		return words.length;
+	}
+
 	public int charCount(String text) {
 		int count = 0;
 		String[] characters = text.split("");
