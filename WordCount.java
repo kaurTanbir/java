@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.Scanner;
+
 class WordCount{
 	public static void main(String[] args) throws IOException {
 	MyFile myFile = new MyFile();
@@ -17,12 +19,12 @@ class WordCount{
 class MyFile {
   public String readFile(String fileName) throws IOException{
     String returnValue = "";
-    FileReader file = null;
+    File file = new File(fileName);;
     String line = "";
     try {
-		file = new FileReader(fileName);
-		BufferedReader reader = new BufferedReader(file);
-		while ((line = reader.readLine()) != null) {
+        Scanner fileContent = new Scanner(file);
+		while (fileContent.hasNextLine()) {
+			line = fileContent.nextLine();
 			returnValue += line + "\n";
 		}
     } 
